@@ -1,83 +1,9 @@
-def spades x
-	puts " --------- "
-	if x == 10
-		puts "|#{x}       |"
-	else
-		puts "|#{x}        |"
-	end
-	puts "|♠        |"
-	puts "|         |"
-	puts "|    ♠    |"
-	puts "|         |"
-	puts "|        ♠|"
-	if x == 10
-		puts "|       #{x}|"
-	else
-		puts "|        #{x}|"
-	end
-	puts " --------- "
-end
+# suits symbols:
+# ♠ 
+# ♥
+# ♣
+# ♦
 
-def hearts x
-	puts " --------- "
-	if x == 10
-		puts "|#{x}       |"
-	else
-		puts "|#{x}        |"
-	end
-	puts "|♥        |"
-	puts "|         |"
-	puts "|    ♥    |"
-	puts "|         |"
-	puts "|        ♥|"
-	if x == 10
-		puts "|       #{x}|"
-	else
-		puts "|        #{x}|"
-	end
-	puts " --------- "
-end
-
-def clubs x
-	puts " --------- "
-	if x == 10
-		puts "|#{x}       |"
-	else
-		puts "|#{x}        |"
-	end
-	puts "|♣        |"
-	puts "|         |"
-	puts "|    ♣    |"
-	puts "|         |"
-	puts "|        ♣|"
-	if x == 10
-		puts "|       #{x}|"
-	else
-		puts "|        #{x}|"
-	end
-	puts " --------- "
-end
-
-def diamonds x
-	puts " --------- "
-	if x == 10
-		puts "|#{x}       |"
-	else
-		puts "|#{x}        |"
-	end
-	puts "|♦        |"
-	puts "|         |"
-	puts "|    ♦    |"
-	puts "|         |"
-	puts "|        ♦|"
-	if x == 10
-		puts "|       #{x}|"
-	else
-		puts "|        #{x}|"
-	end
-	puts " --------- "
-end
-#{s1}
 def two_cards(x,y,s1,s2)
 	if x != '10' && y != '10'
 		puts " ---------      --------- "
@@ -132,6 +58,7 @@ def two_cards(x,y,s1,s2)
 end
 
 def three_cards(x,y,z,s1,s2,s3)
+	# this part only partly done
 	if x != '10' && y != '10' && z != '10'
 		puts " ---------      ---------      --------- "
 		puts "|#{x}        |    |#{y}        |    |#{z}        |"
@@ -202,7 +129,7 @@ def three_cards(x,y,z,s1,s2,s3)
 end
 
 def four_cards(x,y,z,a,s1,s2,s3,s4)
-	# this part not done
+	# this part not done at all
 	if x != '10' && y != '10' && z != '10' && a != '10'
 		puts " ---------      ---------      ---------       --------- "
 		puts "|K        |    |K        |    |K        |     |K        |"
