@@ -8,9 +8,8 @@ load 'method_storage.rb'
 
 @faces = %w(J Q K A)
 
-@player_cards = []
-@dealer_cards = []
-
+# @player_cards = []
+# @dealer_cards = []
 
 puts "Your cards:"
 player = first_deal
@@ -20,6 +19,7 @@ puts "Dealer's cards:"
 dealer = first_deal
 # dealer == [[hand], score]
 
+# check for two aces, lower one of their values from 11 to 1
 if player[1] > 21
 	player[1] -= 10
 end
@@ -51,16 +51,45 @@ else
 			# deal another card
 			player = second_deal(player)
 			puts "Player score: #{player[1]}"
+
+			# if player's score is now over 21, we stop, and...
+			# dealer only hits if their score is less than 16
+			if player[1] <= 21 && dealer[1] <= 16
+				dealer = second_deal(dealer)
+				puts "Dealer score: #{dealer[1]}"
+			elsif player[1] > 21
+				puts "Dealer wins. You went over 21."
+			end
+
+			if dealer[1] <= 21 && player[1] <= 21
+				if player[1] == dealer[1]
+					puts "It's a tie!"
+				elsif player[1] > dealer[1]
+					puts "You win!"
+				else
+					puts "Dealer wins."
+				end
+			elsif dealer[1] > 21
+				puts "You win! They went over 21."
+			end
+
 		when 2
 			# move on to dealer
+			if dealer[1] <= 16
+				dealer = second_deal(dealer)
+				puts "Dealer score: #{dealer[1]}"
+			end
+
+			if player[1] == dealer[1]
+				puts "It's a tie!"
+			elsif player[1] > dealer[1] || dealer[1] > 21
+				puts "You win!"
+			else
+				puts "Dealer wins."
+			end
+
 	end
 
-
-	# If Dealer's score less than 16
-	# second_deal w/ two first cards same as first_deal
-	# if >= 16
-	# nothing happens for dealer
 end
 
-
-
+puts @used_cards
